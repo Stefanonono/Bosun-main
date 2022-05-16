@@ -5,16 +5,8 @@ using UnityEngine;
 public class SlotGame : MonoBehaviour
 {
     public ItemSlot[] slots;
-//     public bool allComplete = true;
-//     public bool IsCompleted(){
-//     foreach (ItemSlot slot in slots) 
-//     {
-//         if (slot.ItemInSlot == false) 
-//         {
-//             allComplete = false;
-//         }
-//     }
-// }
+    public DisableMovement disableMovement;
+
     public bool IsCompleted() {
     bool allComplete = true;
     foreach (ItemSlot slot in slots) {
@@ -23,5 +15,22 @@ public class SlotGame : MonoBehaviour
             }
         }
         return allComplete;
+    }
+
+    void Start()
+    {
+        foreach (ItemSlot slot in slots)
+        {
+            slot.SetSlotGame(this);
+        }
+    }
+
+    public void CheckComplete()
+    {
+        if (IsCompleted())
+        {
+            gameObject.transform.FindChild("Canvas").gameObject.SetActive(false);
+            disableMovement.popUpInteract = false;
+        }
     }
 }

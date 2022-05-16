@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
  
 public class ItemSlot : MonoBehaviour, IDropHandler {
- public bool ItemInSlot = false;
+    public bool ItemInSlot = false;
+    private SlotGame slotGame;
  
     public void OnDrop(PointerEventData eventData) {
     Debug.Log("OnDrop");
@@ -12,6 +13,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             transform.position = Input.mousePosition;
             ItemInSlot = true;
+            slotGame.CheckComplete();
         }
+    }
+
+    public void SetSlotGame(SlotGame game)
+    {
+        slotGame = game;
     }
 }

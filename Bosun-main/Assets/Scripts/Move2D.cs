@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 public class Move2D : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public bool isGrounded = false;
     public string popUp;
     public GameObject interactIcon;
-    public bool canInteract = false;
+    public bool canInteract;
     private Vector2 boxSize = new Vector2(0.1f,1f);
 
     void Start()
@@ -23,7 +24,7 @@ public class Move2D : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && canInteract == true)
 			{
-				CheckInteraction();
+                CheckInteraction();
 				PopUpSystem pop = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PopUpSystem>();
 				pop.PopUp(popUp);
                 GetComponent<DisableMovement>().popUpInteract = true;
@@ -34,7 +35,7 @@ public class Move2D : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 10f), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 15f), ForceMode2D.Impulse);
         }
     }
 
@@ -47,6 +48,7 @@ public class Move2D : MonoBehaviour
 	public void CloseInteractableIcon()
 		{
 			interactIcon.SetActive(false);
+            canInteract = false;
 		}
 
 	private void CheckInteraction()
@@ -59,12 +61,12 @@ public class Move2D : MonoBehaviour
 			{
 				if (rc.transform.GetComponent<Interactable>())
 				{
-					// canInteract = true;
+					canInteract = true;
                     rc.transform.GetComponent<Interactable>().Interact();
 					return;
 				}
-	            else 
-                canInteract = false;
+	            // else 
+                // canInteract = false;
             }
         }
     }
