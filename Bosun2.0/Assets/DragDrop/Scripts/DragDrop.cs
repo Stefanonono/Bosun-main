@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
  
     [SerializeField] private Canvas canvas;
- 
+    // public ItemSlot[] item;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     // public bool allItemsInSlot = false;
@@ -37,5 +37,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
  
     public void OnPointerDown(PointerEventData eventData) {
         Debug.Log("OnPointerDown");
+    }
+
+    public void SetWorking()
+    {
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
     }
 }
