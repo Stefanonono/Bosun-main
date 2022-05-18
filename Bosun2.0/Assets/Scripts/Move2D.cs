@@ -17,20 +17,21 @@ public class Move2D : MonoBehaviour
         interactIcon.SetActive(false);
         canInteract = false;
     }
+
     void Update()
     {
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
 
-        if (Input.GetKeyDown(KeyCode.E) && canInteract == true)
-			{
-                CheckInteraction();
-				PopUpSystem pop = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PopUpSystem>();
-				pop.PopUp(popUp);
-                GetComponent<DisableMovement>().popUpInteract = true;
-                reset.Reset();
-			}
+        // if (Input.GetKeyDown(KeyCode.E) && canInteract == true)
+		// 	{
+        //         CheckInteraction();
+		// 		PopUpSystem pop = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PopUpSystem>();
+		// 		pop.PopUp(popUp);
+        //         GetComponent<DisableMovement>().popUpInteract = true;
+        //         reset.Reset();
+		// 	}
     }
 
     void Jump()
@@ -53,7 +54,7 @@ public class Move2D : MonoBehaviour
             canInteract = false;
 		}
 
-	private void CheckInteraction()
+	public void CheckInteraction()
 	{
 		RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position,boxSize, 0, Vector2.zero);
 

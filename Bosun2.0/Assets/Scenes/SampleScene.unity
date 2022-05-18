@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUpBox: {fileID: 1933907423}
-  popUpText: {fileID: 68876459}
+  popUpText: {fileID: 0}
 --- !u!4 &636423224
 Transform:
   m_ObjectHideFlags: 0
@@ -1832,6 +1832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276980503}
   - component: {fileID: 1276980504}
+  - component: {fileID: 1276980505}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -1878,6 +1879,26 @@ MonoBehaviour:
   - {fileID: 1130875944}
   xRange: 300
   yRange: 300
+--- !u!95 &1276980505
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276980501}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0e543e8fc26a914eb7da1003060c24a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1300448294
 GameObject:
   m_ObjectHideFlags: 0
