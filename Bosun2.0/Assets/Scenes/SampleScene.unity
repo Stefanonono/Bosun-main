@@ -413,8 +413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e35d256bc933e46910e72d83380be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: {fileID: 21300000, guid: f95f697d66d238446b1ab717def09945, type: 3}
-  closed: {fileID: 21300000, guid: 4a231ba0e81e63849a8f985c228e8acd, type: 3}
+  showIcon: 0
+  open: {fileID: 21300000, guid: 52422ada2db954026a3ae1f1ba6b4486, type: 3}
+  closed: {fileID: 21300000, guid: 1a96ab5f501a8e84c9016458682e1ccb, type: 3}
+  inRange: {fileID: 1198376397}
 --- !u!61 &260340637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -432,7 +434,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.33}
+    oldSize: {x: 0.87, y: 1.08}
     newSize: {x: 2.56, y: 1.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -482,7 +484,7 @@ SpriteRenderer:
   m_SortingLayerID: -1156683383
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f95f697d66d238446b1ab717def09945, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52422ada2db954026a3ae1f1ba6b4486, type: 3}
   m_Color: {r: 0.3962264, g: 0.31855252, b: 0.20434316, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1267,7 +1269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUpBox: {fileID: 1933907423}
-  popUpText: {fileID: 68876459}
+  popUpText: {fileID: 0}
 --- !u!4 &636423224
 Transform:
   m_ObjectHideFlags: 0
@@ -1730,10 +1732,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1156683383
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1798,6 +1800,8 @@ MonoBehaviour:
   interactIcon: {fileID: 1093566500}
   canInteract: 0
   reset: {fileID: 1276980504}
+  interactPrompt: {fileID: 260340636}
+  sprite: {fileID: 1093566501}
 --- !u!114 &1198376398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,6 +1836,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1276980503}
   - component: {fileID: 1276980504}
+  - component: {fileID: 1276980505}
+  - component: {fileID: 1276980506}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -1878,6 +1884,44 @@ MonoBehaviour:
   - {fileID: 1130875944}
   xRange: 300
   yRange: 300
+--- !u!95 &1276980505
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276980501}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0e543e8fc26a914eb7da1003060c24a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1276980506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276980501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1733311484b99ef40b8308f654e95a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUp: Pop Up
+  reset: {fileID: 1276980504}
+  interactable: {fileID: 1198376397}
+  iscomplete: {fileID: 1276980504}
+  interactPrompt: {fileID: 260340636}
+  interactIcon: {fileID: 1093566500}
 --- !u!1 &1300448294
 GameObject:
   m_ObjectHideFlags: 0

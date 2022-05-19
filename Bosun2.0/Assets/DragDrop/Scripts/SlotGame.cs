@@ -40,7 +40,6 @@ public class SlotGame : MonoBehaviour
 
     private bool SlotOverlapsAny(List<float> usedX, List<float> usedY, float tryX, float tryY)
     {
-        float slotScale = 100;
         for (int i=0; i<usedX.Count; i++)
         {
             if (tryX > usedX[i] - 100 && tryX < usedX[i] + 100 && tryY > usedY[i] - 100 && tryY < usedY[i] + 100)

@@ -8,9 +8,12 @@ public class Fixable : Interactable
 
     private SpriteRenderer sr;
     private bool isOpen;
+    public Move2D inRange;
 
     public override void Interact()
     {
+        if (inRange.canInteract == true)
+        
         if(isOpen)
             sr.sprite = closed;
         else
