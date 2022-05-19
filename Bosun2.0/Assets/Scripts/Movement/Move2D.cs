@@ -11,9 +11,13 @@ public class Move2D : MonoBehaviour
     public bool canInteract;
     private Vector2 boxSize = new Vector2(0.1f,1f);
     public SlotGame reset;
-
+    public Interactable interactPrompt;   
+    public SpriteRenderer sprite;
+ 
     void Start()
     {
+        sprite = interactIcon.GetComponent<SpriteRenderer>();
+        sprite.color = new Color(1, 1, 1, 1);
         interactIcon.SetActive(false);
         canInteract = false;
     }
@@ -45,13 +49,15 @@ public class Move2D : MonoBehaviour
     public void OpenInteractableIcon()
 		{
 			interactIcon.SetActive(true);
+            sprite.color = new Color(1, 0, 0, 1);
             canInteract = true;
 		}
 
 	public void CloseInteractableIcon()
 		{
-			interactIcon.SetActive(false);
+			// interactIcon.SetActive(false);
             canInteract = false;
+            sprite.color = new Color(1, 1, 1, 1);
 		}
 
 	public void CheckInteraction()
@@ -78,7 +84,7 @@ public class Move2D : MonoBehaviour
     {
             if (collision.collider.tag == "Fixable")
             {
-            canInteract = true;
+             canInteract = true;
             }        
     }
 
